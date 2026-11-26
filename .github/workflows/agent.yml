@@ -42,7 +42,7 @@ jobs:
         if: env.HAS_AGENT == 'true'
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         if: env.HAS_AGENT == 'true'
         with:
           node-version: 22
