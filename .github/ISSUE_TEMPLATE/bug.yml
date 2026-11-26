@@ -1,0 +1,22 @@
+name: Bug report
+description: The pause/resume action misbehaves
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Doctor output
+      description: Output of `npm run doctor` (or `node scripts/doctor.mjs`) from a checkout of this repo. Emails are redacted; check for anything else private before pasting.
+      render: text
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: bb version (`bb --version`) and plugin version (`bb plugin list`).

@@ -1,0 +1,60 @@
+{
+  "repository": "https://github.com/get-bb/bb",
+  "syncedCommit": "b0ddaad731565d7e4de68d824120d802fc78f7d5",
+  "syncedAt": "2026-11-26",
+  "testedBbVersion": "0.50.1",
+  "testedPluginSdk": "0.6.157",
+  "tracked": [
+    {
+      "upstream": "plugins/bb-guide/skills/bb-plugin-authoring/references/frontend-registration.md",
+      "local": "app.tsx",
+      "relation": "documents app.slots.experimental_threadAction (placement, groups, useData, item) that app.tsx registers twice"
+    },
+    {
+      "upstream": "packages/sdk/src/areas/hosts.ts",
+      "local": "sandbox-store.ts",
+      "relation": "hosts.list, experimental_listProviders (supportsSuspend), experimental_suspend/resume used by the store and actions"
+    },
+    {
+      "upstream": "apps/app/src/hooks/mutations/host-mutations.ts",
+      "local": null,
+      "relation": "how bb core itself calls suspend/resume; keep behaviour aligned"
+    },
+    {
+      "upstream": "apps/app/src/components/promptbox/ThreadEnvironmentSummary.tsx",
+      "local": null,
+      "relation": "the machine chip under the composer; a native pause control or a plugin slot here would make the header button redundant"
+    },
+    {
+      "upstream": "docs/environment-provisioning.md",
+      "local": null,
+      "relation": "machine lifecycle phases (active, suspending, suspended, resuming, …) the actions map"
+    }
+  ],
+  "watchForPublicApis": [
+    {
+      "symbol": "experimental_threadAction",
+      "alert": "disappears",
+      "meaning": "the thread action slot was renamed or stabilised; rename app.slots.experimental_threadAction",
+      "paths": ["packages/plugin-sdk/src"]
+    },
+    {
+      "symbol": "experimental_THREAD_ACTION_GROUPS",
+      "alert": "disappears",
+      "meaning": "thread action groups were renamed; update the menu registration group",
+      "paths": ["packages/plugin-sdk/src"]
+    },
+    {
+      "symbol": "experimental_suspend",
+      "alert": "disappears",
+      "meaning": "hosts.experimental_suspend/resume were renamed or stabilised; update actions in app.tsx",
+      "paths": ["packages/sdk/src"]
+    },
+    {
+      "symbol": "suspend",
+      "alert": "appears",
+      "meaning": "bb's composer machine chip now mentions suspend; check whether core ships a native pause control and this plugin can drop its header button",
+      "paths": ["apps/app/src/components/promptbox/ThreadEnvironmentSummary.tsx"]
+    }
+  ]
+}

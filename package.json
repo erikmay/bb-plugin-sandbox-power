@@ -1,0 +1,57 @@
+{
+  "name": "bb-plugin-sandbox-power",
+  "version": "0.2.0",
+  "description": "bb plugin: pause and resume a thread's sandbox machine from the thread header and menus",
+  "license": "MIT",
+  "author": "Erik May (https://github.com/erikmay)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikmay/bb-plugin-sandbox-power.git"
+  },
+  "homepage": "https://github.com/erikmay/bb-plugin-sandbox-power#readme",
+  "bugs": {
+    "url": "https://github.com/erikmay/bb-plugin-sandbox-power/issues"
+  },
+  "keywords": [
+    "bb-plugin",
+    "bb",
+    "sandbox",
+    "modal",
+    "exe.dev",
+    "coding-agents"
+  ],
+  "type": "module",
+  "engines": {
+    "bb": ">=0.50",
+    "bbPluginSdk": ">=0.6.157"
+  },
+  "bb": {
+    "name": "Sandbox Power",
+    "description": "Pause and resume a thread's sandbox machine (exe.dev, Modal, …) from the thread header and menus.",
+    "branding": {
+      "icon": "Pause"
+    },
+    "server": "./server.ts",
+    "app": "./app.tsx"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest run",
+    "build": "bb plugin build",
+    "doctor": "node scripts/doctor.mjs",
+    "upstream:check": "node scripts/check-upstream.mjs main"
+  },
+  "devDependencies": {
+    "@get-bb/plugin-sdk": "0.6.157",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "better-sqlite3": "^12.0.0",
+    "cron-parser": "^5.5.0",
+    "hono": "^4.11.9",
+    "sonner": "^1.7.4",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.12"
+  }
+}
