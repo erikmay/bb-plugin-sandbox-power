@@ -38,7 +38,7 @@ jobs:
       - name: Skip without agent credentials
         if: env.HAS_AGENT != 'true'
         run: echo "::notice::Set CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY to enable the agent."
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         if: env.HAS_AGENT == 'true'
         with:
           fetch-depth: 0
