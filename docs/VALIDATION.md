@@ -28,28 +28,18 @@ The app picks up a rebuilt frontend after a page reload.
 
 ### When bb runs on another machine
 
-When your bb server runs on another machine (a VM, a home server), the plugin
-has to live there. You keep editing this checkout, without releases:
-
-1. Give the server an SSH alias, `bb-remote` by default (`BB_REMOTE` picks
-   another), and install [Mutagen](https://mutagen.io) here.
-2. `sh scripts/remote-dev.sh setup` mirrors this checkout to
-   `~/Code/bb-plugins/<repo>` on the server (one way, this computer wins;
-   `node_modules`, `dist` and `.git` stay out). Then install the mirror there
-   once: `bb plugin remove sandbox-power && bb plugin install ~/Code/bb-plugins/<repo>`.
-   Removing deletes the plugin's settings, so set them again.
-3. The loop:
+The plugin has to live on the bb server. With an SSH alias `bb-remote` for it
+(`BB_REMOTE` picks another), install the copy there once, then iterate:
 
 ```sh
-npm run remote:reload   # sync, build on the server, reload (a few seconds)
-npm run remote:dev      # sync on save; bb plugin dev rebuilds and reloads there
+npm run remote:reload   # copy this checkout over (rsync), build there, reload
 npm run remote:logs     # follow the plugin log on the server
-npm run remote:doctor   # the health check, run on the server
 ```
 
-The server runs whatever this checkout holds, so it is live for you at once.
-Publishing is still a version bump merged to `main`; the server keeps its path
-install.
+The first `remote:reload` creates `~/Code/bb-plugins/<repo>` on the server;
+install it there once with `bb plugin remove sandbox-power && bb plugin install
+~/Code/bb-plugins/<repo>` (removing deletes the plugin's settings). Publishing
+is still a version bump merged to `main`.
 
 
 ## 3. End to end in the UI

@@ -17,7 +17,7 @@ the app (frontend) entry.
 | `test/` | Unit tests for the store (fake SDK, manual clock) and the action mapping |
 | `upstream.json` | bb commit this plugin is synced to, tracked upstream files, API signals |
 | `scripts/check-upstream.mjs` | Reports upstream drift, new bb/SDK releases and API promotions |
-| `scripts/remote-dev.sh` | Fast loop against a bb server on another machine: Mutagen mirror, build and reload there |
+| `scripts/remote-dev.sh` | Copies the checkout to a bb server on another machine, builds and reloads there |
 | `scripts/doctor.mjs` | Local health check against a running bb |
 | `docs/VALIDATION.md` | How to validate against a local bb, including the UI |
 
@@ -44,7 +44,7 @@ npm run build                 # bb plugin build (needs the bb CLI)
 npm run doctor                # local install check (see docs/VALIDATION.md)
 npm run upstream:check        # drift against bb main
 node scripts/check-upstream.mjs <ref> [--json] [--markdown out.md]
-npm run remote:reload        # remote bb: sync, build there, reload (docs/VALIDATION.md)
+npm run remote:reload        # remote bb: copy, build there, reload (docs/VALIDATION.md)
 npm run remote:logs          # remote bb: follow the plugin log
 ```
 

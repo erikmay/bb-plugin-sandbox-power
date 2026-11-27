@@ -27,7 +27,7 @@
   },
   "bb": {
     "name": "Sandbox Power",
-    "description": "Pause and resume a thread's sandbox machine (exe.dev, Modal, \u2026) from the thread header and menus.",
+    "description": "Pause and resume a thread's sandbox machine (exe.dev, Modal, …) from the thread header and menus.",
     "branding": {
       "icon": "Pause"
     },
@@ -41,9 +41,7 @@
     "doctor": "node scripts/doctor.mjs",
     "upstream:check": "node scripts/check-upstream.mjs main",
     "remote:reload": "sh scripts/remote-dev.sh reload",
-    "remote:dev": "sh scripts/remote-dev.sh dev",
-    "remote:logs": "sh scripts/remote-dev.sh logs",
-    "remote:doctor": "sh scripts/remote-dev.sh doctor"
+    "remote:logs": "sh scripts/remote-dev.sh logs"
   },
   "devDependencies": {
     "@get-bb/plugin-sdk": "0.6.157",
