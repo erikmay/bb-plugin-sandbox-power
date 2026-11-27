@@ -34,19 +34,11 @@ suspend support.
 
 ```sh
 npm install
-npm run typecheck
-npm test
+npm run typecheck && npm test
 bb plugin install .          # from this checkout
-npm run doctor               # check a local install
 ```
 
-[docs/VALIDATION.md](docs/VALIDATION.md) covers checking the plugin against a
-local bb, including a UI run against http://127.0.0.1:38886/. `AGENTS.md`
-describes the architecture, the definition of done, and how upstream bb changes
-are tracked (`npm run upstream:check`). Maintenance is mostly automated: a
-weekly job opens an issue when bb changes something this plugin depends on, an
-optional Claude Code workflow turns issues labelled `agent` into pull
-requests, and merging a version bump publishes the release.
+`AGENTS.md` describes the architecture, releasing, and following bb upstream.
 
 ## License
 

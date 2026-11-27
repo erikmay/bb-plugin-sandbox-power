@@ -1,6 +1,6 @@
 {
   "name": "bb-plugin-sandbox-power",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "bb plugin: pause and resume a thread's sandbox machine from the thread header and menus",
   "license": "MIT",
   "author": "Erik May (https://github.com/erikmay)",
@@ -38,8 +38,6 @@
     "typecheck": "tsc --noEmit -p .",
     "test": "vitest run",
     "build": "bb plugin build",
-    "doctor": "node scripts/doctor.mjs",
-    "upstream:check": "node scripts/check-upstream.mjs main",
     "remote:reload": "sh scripts/remote-dev.sh reload",
     "remote:logs": "sh scripts/remote-dev.sh logs"
   },

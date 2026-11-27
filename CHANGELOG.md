@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 — 2026-11-27
+
+- Leaner repository: removed the upstream-drift watcher, the Claude Code agent
+  workflow, Dependabot, issue and PR templates, the doctor script and the
+  separate validation guide. `AGENTS.md` covers it in one place. No change to
+  the plugin.
+
 ## 0.2.0 — 2026-11-26
 
 - One shared store for both registrations (header button and menu entry):
